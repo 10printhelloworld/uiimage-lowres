@@ -8,6 +8,6 @@
 @property (readonly) UIImage *lowQuality;
 
 - (UIImage*)imageWithJPEGCompression:(float)compressionQuality;
-
+- (UIImage*)imageWithSize:(CGSize)size;
 
 @end

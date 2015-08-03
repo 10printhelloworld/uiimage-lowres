@@ -48,7 +48,12 @@
         }
     }
     
-    CGRect rect = CGRectMake(0.0, 0.0, actualWidth, actualHeight);
+    return [self imageWithSize:CGSizeMake(actualWidth, actualHeight)];
+}
+
+- (UIImage*)imageWithSize:(CGSize)size
+{
+    CGRect rect = CGRectMake(0.0, 0.0, size.width, size.height);
     UIGraphicsBeginImageContext(rect.size);
     [self drawInRect:rect];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
