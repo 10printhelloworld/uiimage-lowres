@@ -23,7 +23,6 @@
     
     float imgRatio = actualWidth/actualHeight;
     float maxRatio = maxWidth/maxHeight;
-    float compressionQuality = .5;//50 percent compression
     
     if (actualHeight > maxHeight || actualWidth > maxWidth){
         if(imgRatio < maxRatio){
@@ -50,7 +49,7 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    NSData *imageData = UIImageJPEGRepresentation(img, compressionQuality);
+    NSData *imageData = UIImageJPEGRepresentation(img, 0.5);
     
     return [UIImage imageWithData:imageData];
 }
