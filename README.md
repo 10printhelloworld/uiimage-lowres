@@ -11,3 +11,10 @@ It also includes a test app that shows the full image and the low res compressed
 version side by side, with their file sizes.  This can be used to make sure
 that the low res version more or less looks like the original, and is indeed
 smaller on disk.
+
+to include it in your pods file go like this in your podfile:
+
+    pod 'lowres', :git => 'https://github.com/10printhelloworld/uiimage-lowres', :commit => '1b0f006940ccee8722fe1a9d721901a39a5c552f'
+
+with the latest hash from the repository.  I have tried putting it 'master' instead of a commit hash, and it doesn't always update.
+
