@@ -7,4 +7,7 @@
 @property (readonly) UIImage *lowResolution;
 @property (readonly) UIImage *lowQuality;
 
+- (UIImage*)imageWithJPEGCompression:(float)compressionQuality;
+
+
 @end

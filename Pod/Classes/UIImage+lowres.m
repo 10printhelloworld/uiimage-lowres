@@ -59,8 +59,14 @@
 
 - (UIImage*)lowQuality
 {
-    NSData *imageData = UIImageJPEGRepresentation(self, 0.5);
+    return [self imageWithJPEGCompression:0.5];
+}
+
+- (UIImage*)imageWithJPEGCompression:(float)compressionQuality
+{
+    NSData *imageData = UIImageJPEGRepresentation(self, compressionQuality);
     return [UIImage imageWithData:imageData];
 }
+
 
 @end
