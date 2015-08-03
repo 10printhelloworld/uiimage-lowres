@@ -9,5 +9,6 @@
 
 - (UIImage*)imageWithJPEGCompression:(float)compressionQuality;
 - (UIImage*)imageWithSize:(CGSize)size;
+- (UIImage*)imageNoBiggerThan:(float)dimension1 by:(float)dimension2;
 
 @end

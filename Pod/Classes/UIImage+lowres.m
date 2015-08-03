@@ -9,23 +9,32 @@
 
 - (UIImage*)lowResolution
 {
+    return [self imageNoBiggerThan:600 by:800];
+}
+
+- (UIImage*)imageNoBiggerThan:(float)dimension1 by:(float)dimension2
+{
     //thanks http://www.raweng.com/blog/2013/03/04/improving-image-compression-what-weve-learned-from-whatsapp/
     //thanks https://gist.github.com/akshay1188/4749253#file-whatsapp-image-compression
         
     float actualHeight = self.size.height;
     float actualWidth = self.size.width;
     float maxHeight; float maxWidth;
-    if (actualHeight > actualWidth)
+    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wlogical-op-parentheses" //prefer to remind myself of the order of operations, and we have a test making sure this is correct
+    if (actualHeight > actualWidth && dimension1 > dimension2 || actualWidth > actualHeight && dimension2 > dimension1)
+#pragma clang diagnostic pop
     {
-        maxHeight = 800.0;
-        maxWidth = 600.0;
+        maxHeight = dimension1;
+        maxWidth = dimension2;
     }
     else
     {
-        maxHeight = 600.0;
-        maxWidth = 800.0;
+        maxHeight = dimension2;
+        maxWidth = dimension1;
     }
-    
+
     float imgRatio = actualWidth/actualHeight;
     float maxRatio = maxWidth/maxHeight;
     
