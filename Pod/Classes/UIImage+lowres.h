@@ -4,4 +4,7 @@
 
 @property (readonly) UIImage *lowres;
 
+@property (readonly) UIImage *lowResolution;
+@property (readonly) UIImage *lowQuality;
+
 @end

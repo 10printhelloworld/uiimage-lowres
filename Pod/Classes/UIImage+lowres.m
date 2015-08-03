@@ -4,6 +4,11 @@
 
 - (UIImage*)lowres
 {
+    return self.lowResolution.lowQuality;
+}
+
+- (UIImage*)lowResolution
+{
     //thanks http://www.raweng.com/blog/2013/03/04/improving-image-compression-what-weve-learned-from-whatsapp/
     //thanks https://gist.github.com/akshay1188/4749253#file-whatsapp-image-compression
         
@@ -49,8 +54,12 @@
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    NSData *imageData = UIImageJPEGRepresentation(img, 0.5);
-    
+    return img;
+}
+
+- (UIImage*)lowQuality
+{
+    NSData *imageData = UIImageJPEGRepresentation(self, 0.5);
     return [UIImage imageWithData:imageData];
 }
 
