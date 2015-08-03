@@ -48,10 +48,9 @@
     UIGraphicsBeginImageContext(rect.size);
     [self drawInRect:rect];
     UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
-    
+    UIGraphicsEndImageContext();
     
     NSData *imageData = UIImageJPEGRepresentation(img, compressionQuality);
-    UIGraphicsEndImageContext();
     
     return [UIImage imageWithData:imageData];
 }
